@@ -7,37 +7,104 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO; 
 
 namespace prform1
 {
     public partial class Form1 : Form
     {
-        // текстбокс для хранения данных
-        private List<string> taskList = new List<string>(); // Изменено название текстбокса
+        // Имя файла, в котором будут храниться задачи
+        private const string DataFileName = "tasks.txt";
+
+        // Полный путь к файлу 
+        private string DataFilePath => Path.Combine(Application.StartupPath, DataFileName);
+
+        // Список для хранения данных
+        private List<string> taskList = new List<string>();
 
         public Form1()
         {
             InitializeComponent();
+
+            // 1. Загрузка данных при старте приложения
+            LoadData();
+
+            // Привязка обработчика закрытия формы для сохранения
+            this.FormClosing += new FormClosingEventHandler(Form1_FormClosing);
+        }
+
+        /// Сохраняет текущий список задач в файл.
+        private void SaveData()
+        {
+            try
+            {
+                // Записываем все строки из taskList в файл
+                File.WriteAllLines(DataFilePath, taskList);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при сохранении данных: {ex.Message}", "Ошибка сохранения", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// Загружает список задач из файла и заполняет ListView.
+   
+        private void LoadData()
+        {
+            if (File.Exists(DataFilePath))
+            {
+                try
+                {
+                    // Читаем все строки из файла
+                    string[] loadedTasks = File.ReadAllLines(DataFilePath);
+
+                    // Очищаем текущий список и добавляем загруженные элементы
+                    taskList.Clear();
+                    taskList.AddRange(loadedTasks);
+
+                    // Заполняем ListView
+                    PopulateListView();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при загрузке данных: {ex.Message}", "Ошибка загрузки", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+    
+        /// Обновляет содержимое ListView на основе taskList.
+    
+        private void PopulateListView()
+        {
+            listViewData.Items.Clear();
+            foreach (string task in taskList)
+            {
+                listViewData.Items.Add(new ListViewItem(task));
+            }
+        }
+
+        // Обработчик события закрытия формы 
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SaveData();
         }
 
         // Кнопка Добавить
-        private void addButton_Click(object sender, EventArgs e) // Изменено название метода
+        private void addButton_Click(object sender, EventArgs e)
         {
-            // Получаем и очищаем введенный текст
             string text = textInput.Text.Trim();
 
-            // Проверка на пустое поле
-            if (string.IsNullOrWhiteSpace(text)) 
+            if (string.IsNullOrWhiteSpace(text))
             {
                 MessageBox.Show("Поле ввода задачи пусто!", "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Добавляем в текстбокс 
+            // Добавляем в список
             taskList.Add(text);
 
             // Добавляем в ListView
-            // Создаем новый элемент ListViewItem, чтобы добавить его в контрол
             ListViewItem listItem = new ListViewItem(text);
             listViewData.Items.Add(listItem);
 
@@ -47,25 +114,21 @@ namespace prform1
         }
 
         // Удаление элемента по двойному клику
-        private void listViewData_MouseDoubleClick(object sender, EventArgs e) // Изменено название метода
+        private void listViewData_MouseDoubleClick(object sender, EventArgs e)
         {
-            // Проверка, выбран ли хоть один элемент
             if (listViewData.SelectedItems.Count == 0)
             {
                 return;
             }
 
-            // Получаем выбранный элемент и его индекс
             ListViewItem selectedItem = listViewData.SelectedItems[0];
-            int selectedIndex = listViewData.SelectedIndices[0]; // Получаем индекс для удаления из taskList
+            int selectedIndex = listViewData.SelectedIndices[0];
 
-            // Подтверждение удаления
             string confirmationMessage = $"Вы действительно хотите удалить задачу: \"{selectedItem.Text}\"?";
 
             if (MessageBox.Show(confirmationMessage, "Подтверждение удаления", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                // Удаляем из текстбокса 
-                // Это более надежно, чем удаление по строковому значению, если строки могут дублироваться
+                // Удаляем из внутреннего списка taskList
                 if (selectedIndex >= 0 && selectedIndex < taskList.Count)
                 {
                     taskList.RemoveAt(selectedIndex);
@@ -77,11 +140,11 @@ namespace prform1
         }
 
         // Кнопка Выход
-        private void exitButton_Click(object sender, EventArgs e) // Изменено название метода
+        private void exitButton_Click(object sender, EventArgs e)
         {
-            // Используем this.Close() для закрытия текущей формы, что также завершит приложение
+            // Вызов this.Close() автоматически вызовет обработчик Form1_FormClosing,
+            // который сохранит данные.
             this.Close();
-            // Application.Exit(); // Оригинальный вариант
         }
     }
 }
