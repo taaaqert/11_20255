@@ -1,0 +1,10 @@
+C:\Users\Home\source\repos\prform1\prform1\bin\Debug\prform1.exe.config
+C:\Users\Home\source\repos\prform1\prform1\bin\Debug\prform1.exe
+C:\Users\Home\source\repos\prform1\prform1\bin\Debug\prform1.pdb
+C:\Users\Home\source\repos\prform1\prform1\obj\Debug\prform1.csproj.AssemblyReference.cache
+C:\Users\Home\source\repos\prform1\prform1\obj\Debug\prform1.Form1.resources
+C:\Users\Home\source\repos\prform1\prform1\obj\Debug\prform1.Properties.Resources.resources
+C:\Users\Home\source\repos\prform1\prform1\obj\Debug\prform1.csproj.GenerateResource.cache
+C:\Users\Home\source\repos\prform1\prform1\obj\Debug\prform1.csproj.CoreCompileInputs.cache
+C:\Users\Home\source\repos\prform1\prform1\obj\Debug\prform1.exe
+C:\Users\Home\source\repos\prform1\prform1\obj\Debug\prform1.pdb
