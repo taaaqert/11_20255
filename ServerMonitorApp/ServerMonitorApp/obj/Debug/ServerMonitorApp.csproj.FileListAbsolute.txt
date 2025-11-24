@@ -1,0 +1,10 @@
+C:\Users\Home\source\repos\ServerMonitorApp\ServerMonitorApp\bin\Debug\ServerMonitorApp.exe.config
+C:\Users\Home\source\repos\ServerMonitorApp\ServerMonitorApp\bin\Debug\ServerMonitorApp.exe
+C:\Users\Home\source\repos\ServerMonitorApp\ServerMonitorApp\bin\Debug\ServerMonitorApp.pdb
+C:\Users\Home\source\repos\ServerMonitorApp\ServerMonitorApp\obj\Debug\ServerMonitorApp.csproj.AssemblyReference.cache
+C:\Users\Home\source\repos\ServerMonitorApp\ServerMonitorApp\obj\Debug\ServerMonitorApp.Form1.resources
+C:\Users\Home\source\repos\ServerMonitorApp\ServerMonitorApp\obj\Debug\ServerMonitorApp.Properties.Resources.resources
+C:\Users\Home\source\repos\ServerMonitorApp\ServerMonitorApp\obj\Debug\ServerMonitorApp.csproj.GenerateResource.cache
+C:\Users\Home\source\repos\ServerMonitorApp\ServerMonitorApp\obj\Debug\ServerMonitorApp.csproj.CoreCompileInputs.cache
+C:\Users\Home\source\repos\ServerMonitorApp\ServerMonitorApp\obj\Debug\ServerMonitorApp.exe
+C:\Users\Home\source\repos\ServerMonitorApp\ServerMonitorApp\obj\Debug\ServerMonitorApp.pdb
