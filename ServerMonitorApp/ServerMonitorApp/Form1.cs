@@ -52,8 +52,7 @@ namespace ServerMonitorApp
         }
 
         /// Проверка статуса одного сервера с обработкой ошибок
-        /// <param name="address">Адрес сервера</param>
-        /// <returns>Статус "online server" или "offline server"</returns>
+    
         private async Task<string> CheckServerStatus(string address)
         {
             try
