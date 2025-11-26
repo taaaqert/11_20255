@@ -1,0 +1,14 @@
+C:\Users\Home\source\repos\ChecklistApp\ChecklistApp\bin\Debug\ChecklistApp.exe.config
+C:\Users\Home\source\repos\ChecklistApp\ChecklistApp\bin\Debug\ChecklistApp.exe
+C:\Users\Home\source\repos\ChecklistApp\ChecklistApp\bin\Debug\ChecklistApp.pdb
+C:\Users\Home\source\repos\ChecklistApp\ChecklistApp\obj\Debug\ChecklistApp.csproj.AssemblyReference.cache
+C:\Users\Home\source\repos\ChecklistApp\ChecklistApp\obj\Debug\MainWindow.baml
+C:\Users\Home\source\repos\ChecklistApp\ChecklistApp\obj\Debug\MainWindow.g.cs
+C:\Users\Home\source\repos\ChecklistApp\ChecklistApp\obj\Debug\App.g.cs
+C:\Users\Home\source\repos\ChecklistApp\ChecklistApp\obj\Debug\ChecklistApp_MarkupCompile.cache
+C:\Users\Home\source\repos\ChecklistApp\ChecklistApp\obj\Debug\ChecklistApp.g.resources
+C:\Users\Home\source\repos\ChecklistApp\ChecklistApp\obj\Debug\ChecklistApp.Properties.Resources.resources
+C:\Users\Home\source\repos\ChecklistApp\ChecklistApp\obj\Debug\ChecklistApp.csproj.GenerateResource.cache
+C:\Users\Home\source\repos\ChecklistApp\ChecklistApp\obj\Debug\ChecklistApp.csproj.CoreCompileInputs.cache
+C:\Users\Home\source\repos\ChecklistApp\ChecklistApp\obj\Debug\ChecklistApp.exe
+C:\Users\Home\source\repos\ChecklistApp\ChecklistApp\obj\Debug\ChecklistApp.pdb

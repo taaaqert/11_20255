@@ -1,0 +1,71 @@
+﻿<Window x:Class="ChecklistApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Чек-листы" Height="500" Width="700">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Левая часть - чек-листы -->
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Margin="0,0,10,0">
+            <TextBlock Text="Чек-листы" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <Button x:Name="btnNew" Content="Новый" Click="BtnNew_Click" Margin="0,0,5,0" Padding="10,5"/>
+                <Button x:Name="btnDelete" Content="Удалить" Click="BtnDelete_Click" Padding="10,5"/>
+            </StackPanel>
+
+            <ListBox x:Name="lstChecklists" Height="150" SelectionChanged="LstChecklists_SelectionChanged"
+                     DisplayMemberPath="Title"/>
+
+            <TextBlock Text="Название:" Margin="0,10,0,5"/>
+            <TextBox x:Name="txtTitle" TextChanged="TxtTitle_TextChanged"/>
+
+            <TextBlock Text="Описание:" Margin="0,10,0,5"/>
+            <TextBox x:Name="txtDescription" Height="60" TextWrapping="Wrap" 
+                     TextChanged="TxtDescription_TextChanged"/>
+        </StackPanel>
+
+        <!-- Правая часть - элементы -->
+        <StackPanel Grid.Row="0" Grid.Column="1" Grid.RowSpan="2">
+            <TextBlock Text="Элементы чек-листа" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <Button x:Name="btnAddItem" Content="Добавить" Click="BtnAddItem_Click" 
+                        Margin="0,0,5,0" Padding="10,5"/>
+                <Button x:Name="btnDeleteItem" Content="Удалить" Click="BtnDeleteItem_Click" 
+                        Padding="10,5"/>
+                <Button x:Name="btnClearCompleted" Content="Очистить выполненные" 
+                        Click="BtnClearCompleted_Click" Padding="10,5"/>
+            </StackPanel>
+
+            <!-- Список элементов с галочками -->
+            <ListBox x:Name="lstItems" Height="200" SelectionChanged="LstItems_SelectionChanged">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox IsChecked="{Binding IsCompleted}" 
+                                  Content="{Binding Description}"
+                                  Checked="CheckBox_Checked"
+                                  Unchecked="CheckBox_Unchecked"
+                                  Margin="2"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <TextBlock Text="Текст элемента:" Margin="0,10,0,5"/>
+            <TextBox x:Name="txtItemText" TextChanged="TxtItemText_TextChanged"/>
+
+            <!-- Статус выполнения -->
+            <TextBlock x:Name="txtProgress" Text="Прогресс: 0/0 (0%)" 
+                       FontWeight="Bold" Margin="0,10,0,0" Foreground="Blue"/>
+        </StackPanel>
+    </Grid>
+</Window>
